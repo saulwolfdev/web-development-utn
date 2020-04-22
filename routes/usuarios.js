@@ -1,10 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
-router.post('/registro',(req, res, next)=> {
-		res.json({"status":"register ok"})
-});
-router.post('/login',(req, res, next)=> {
-		res.json({"status":"login ok"})
-});
+var mainController = require("../controllers/usuariosController")
+
+/* GET home page. */
+router.get('/', mainController.getAll);
+
+router.post('/registro', mainController.create);
+
 module.exports = router;
